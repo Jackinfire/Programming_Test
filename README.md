@@ -1,1 +1,1 @@
-Here lies teh content of my Programming Test
+Here lies the content of my Programming Test
