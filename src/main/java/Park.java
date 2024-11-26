@@ -1,5 +1,3 @@
-
-
 import Shapes.Circle;
 import Shapes.Square;
 
@@ -25,5 +23,7 @@ public class Park extends Canvas {
         circ2.draw(g);
         square1.draw(g);
     }
+
+
 
 }

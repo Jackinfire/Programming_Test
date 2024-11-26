@@ -12,7 +12,7 @@ import java.io.IOException;
 public class Main {
     public static void main(String[] args) throws IOException {
         Keeper Geoff = new Keeper("Geoff");
-        Geoff.setPhoneNum(4392);
+        Geoff.setPhoneNum("4392");
         Geoff.setGPSid(80);
 
         Lion Simba  = new Lion("Simba");
@@ -34,13 +34,6 @@ public class Main {
         Point Monitor1_location =LocationSystem.getCoords(Monitor1.getGPSid());
         Park d=new Park(Simba_location, Geoff_location, Monitor1_location);
         f.add(d);
-        f.repaint();
-        try{
-            Thread.sleep(1000);
-        }catch (Exception e){
-            System.out.println("Something went wrong");
-        }
-
 
         // Add a window listener to end the program for when the window is closed
         f.addWindowListener(new WindowAdapter() {// Ends program if close window is clicked
@@ -48,6 +41,14 @@ public class Main {
                 f.dispose();
             }
         });
+
+        double distance =Math.hypot(Simba_location.getX()- Geoff_location.getX(), Simba_location.getY()- Geoff_location.getY());
+        if (distance <60){
+            AlertSystem.alertAKeeper(Geoff.getPhoneNum());
+            AlertSystem.alertADrone(Monitor1.getRF());
+        }
+
+
 
 
 

@@ -2,14 +2,14 @@ package Park_Stakeholders;
 
 public class Keeper {
     private String name;
-    private int PhoneNum;
+    private String PhoneNum;
     private int GPSid;
 
     public Keeper(String name) {
         this.name = name;
     }
 
-    public void setPhoneNum(int phoneNum) {
+    public void setPhoneNum(String phoneNum) {
         PhoneNum = phoneNum;
     }
 
@@ -17,7 +17,7 @@ public class Keeper {
         GPSid = gpsid;
     }
 
-    public int getPhoneNum() {
+    public String getPhoneNum() {
         return PhoneNum;
     }
 
