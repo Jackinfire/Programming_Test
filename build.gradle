@@ -22,6 +22,8 @@ repositories {
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+    // You should include the following dependency in build.gradle:-
+    implementation group: 'com.google.code.gson', name:'gson', version: '2.7'
 }
 
 test {
