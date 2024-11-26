@@ -31,10 +31,11 @@ public class Main {
 
         Park d=new Park(LocationSystem.getCoords(Simba.getGPSid()), LocationSystem.getCoords(Geoff.getGPSid()), LocationSystem.getCoords(Monitor1.getGPSid()));
         f.add(d);
+        f.repaint();
 
         try{
             Thread.sleep(1000);
-            f.repaint();
+
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
