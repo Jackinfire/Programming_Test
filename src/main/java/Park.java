@@ -3,6 +3,7 @@ import Shapes.Square;
 
 import java.awt.*;
 
+
 public class Park extends Canvas {
     // Declare the shapes - they can all be private as nothing else needs to access them
     private Circle circ1;
@@ -15,6 +16,7 @@ public class Park extends Canvas {
         circ1=new Circle(3, Lion_Location, Color.red);
         circ2=new Circle(2, Keeper_Location, Color.blue);
         square1=new Square(3, Drone_Location, Color.black);
+
     }
 
     public void paint(Graphics g) {

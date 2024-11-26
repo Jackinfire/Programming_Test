@@ -29,11 +29,21 @@ public class Main {
         f.setSize(600, 600);
         f.setVisible(true);
 
-        Point Simba_location =LocationSystem.getCoords(Simba.getGPSid());
-        Point Geoff_location =LocationSystem.getCoords(Geoff.getGPSid());
-        Point Monitor1_location =LocationSystem.getCoords(Monitor1.getGPSid());
-        Park d=new Park(Simba_location, Geoff_location, Monitor1_location);
+        Park d=new Park(LocationSystem.getCoords(Simba.getGPSid()), LocationSystem.getCoords(Geoff.getGPSid()), LocationSystem.getCoords(Monitor1.getGPSid()));
         f.add(d);
+
+        try{
+            Thread.sleep(1000);
+            f.repaint();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+        double distance =Math.hypot(LocationSystem.getCoords(Simba.getGPSid()).getX()- LocationSystem.getCoords(Geoff.getGPSid()).getX(), LocationSystem.getCoords(Simba.getGPSid()).getY()- LocationSystem.getCoords(Geoff.getGPSid()).getY());
+        if (distance <60){
+            AlertSystem.alertAKeeper(Geoff.getPhoneNum());
+            AlertSystem.alertADrone(Monitor1.getRF());
+        }
 
         // Add a window listener to end the program for when the window is closed
         f.addWindowListener(new WindowAdapter() {// Ends program if close window is clicked
@@ -41,15 +51,6 @@ public class Main {
                 f.dispose();
             }
         });
-
-        double distance =Math.hypot(Simba_location.getX()- Geoff_location.getX(), Simba_location.getY()- Geoff_location.getY());
-        if (distance <60){
-            AlertSystem.alertAKeeper(Geoff.getPhoneNum());
-            AlertSystem.alertADrone(Monitor1.getRF());
-        }
-
-
-
 
 
 
