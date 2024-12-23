@@ -27,12 +27,12 @@ public class Main {
         Frame f=new Frame();
         f.setLayout(null);
         f.setSize(600, 600);
-        f.setVisible(true);
+
 
         Park d=new Park(LocationSystem.getCoords(Simba.getGPSid()), LocationSystem.getCoords(Geoff.getGPSid()), LocationSystem.getCoords(Monitor1.getGPSid()));
         f.add(d);
         f.repaint();
-
+        f.setVisible(true);
         try{
             Thread.sleep(1000);
 
